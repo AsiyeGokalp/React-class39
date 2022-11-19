@@ -6,7 +6,7 @@ import "./App.css"
 
 function App() {
   const [productList, setProductList] = useState(ALL_PRODUCTS)
-  const [activeButton, setActiveButton] = useState(0)
+  const [activeButton, setActiveButton] = useState()
 
   const filterByCategory = (category) => {
     const newProductList = ALL_PRODUCTS.filter(
@@ -28,8 +28,8 @@ function App() {
       })}
 
       <div className="gallery">
-        {productList.map((product, index) => {
-          return <Product key={index} {...product} />
+        {productList.map((product) => {
+          return <Product key={product.id} {...product} />
         })}
       </div>
     </div>
