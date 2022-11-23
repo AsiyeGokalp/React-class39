@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 
-export default function ProductDetail() {
+const ProductDetail = () => {
   let { id } = useParams()
   const [product, setProduct] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -32,3 +32,4 @@ export default function ProductDetail() {
   )
 
 }
+export default ProductDetail
