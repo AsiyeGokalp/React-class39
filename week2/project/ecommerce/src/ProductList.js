@@ -57,6 +57,7 @@ const ProductList = () => {
 
   return (
     <>
+      <h1>Products</h1>
       {categoryData.map((item, index) => {
         return <button
           key={index}

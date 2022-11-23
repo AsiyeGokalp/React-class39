@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 const ProductDetail = () => {
   let { id } = useParams()
-  const [product, setProduct] = useState(null)
+  const [product, setProduct] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -14,6 +14,7 @@ const ProductDetail = () => {
       const res = await fetch(`https://fakestoreapi.com/products/${id}`)
       const data = await res.json()
       setProduct(data)
+
     }
     try {
       getData()
@@ -25,9 +26,12 @@ const ProductDetail = () => {
 
   }, [id])
 
+
   return (
     <div className="Product">
-      {isLoading ? "loading..." : <img src={product.image}></img>}
+      <h3>{product.title}</h3>
+      {isLoading ? "loading..." : <img style={{ width: 200 }} src={product.image}></img>}
+      <p>{product.description}</p>
     </div>
   )
 
