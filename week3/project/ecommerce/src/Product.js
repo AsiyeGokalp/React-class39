@@ -5,7 +5,7 @@ import FavIcon from "./favoriteIcon.js"
 const Product = (props) => {
   return (
     <>
-      <FavIcon product={props.product}></FavIcon>
+      <FavIcon></FavIcon>
       <Link to={`/product/${props.id}`} className="image">
         <img src={props.image} alt="" />
         <h1>{props.title}</h1>

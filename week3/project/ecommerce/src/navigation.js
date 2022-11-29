@@ -5,14 +5,14 @@ function Navigation() {
   return (
     <div>
       <Link to={`/`}>
-        <Button style={{ float: "right" }}>
+        <button style={{ float: "right" }}>
           Product List
-        </Button>
+        </button>
       </Link>
       <Link to={`/favorite`}>
-        <Button style={{ float: "right" }}>
+        <button style={{ float: "right" }}>
           Favorite Products
-        </Button>
+        </button>
       </Link>
     </div>
   );

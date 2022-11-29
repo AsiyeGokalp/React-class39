@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FavoriteProductContext } from "./favoriteProductContext";
-import heartRegular from "../assets/heart-regular.svg";
-import heartSolid from "../assets/heart-solid.svg";
+import heartRegular from "./assets/heart-regular.svg";
+import heartSolid from "./assets/heart-solid.svg";
 
 function FavIcon({ product }) {
   const { handleAddFavorite, handleRemoveFavorite, favoriteProducts } =
