@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Error from './Error'
 import { useParams } from 'react-router-dom'
 
 
@@ -18,8 +19,8 @@ const ProductDetail = () => {
     }
     try {
       getData()
-    } catch {
-      setError()
+    } catch (err) {
+      setError(error.message)
     } finally {
       setIsLoading(false)
     }
@@ -27,13 +28,22 @@ const ProductDetail = () => {
   }, [id])
 
 
-  return (
-    <div className="Product">
+  return isLoading ? (
+    <>
+      <h2>Loading...</h2>
+    </>
+  ) : error ? (
+    <Error error={error} />
+  ) : (
+    <div className="image">
       <h3>{product.title}</h3>
-      {isLoading ? "loading..." : <img style={{ width: 200 }} src={product.image}></img>}
-      <p>{product.description}</p>
-    </div>
-  )
+      <img src={product?.image} alt={product.id} />
 
+      <p>{product.description}</p>
+
+    </div>
+  );
 }
+
+
 export default ProductDetail

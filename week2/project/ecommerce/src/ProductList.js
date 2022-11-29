@@ -9,13 +9,13 @@ const ProductList = () => {
   const [activeButton, setActiveButton] = useState()
 
   useEffect(() => {
-    const getProductData = async () => {
+    const getAllProducts = async () => {
       const res = await fetch(`https://fakestoreapi.com/products`)
       const data = await res.json()
       setProductData(data)
     }
     try {
-      getProductData()
+      getAllProducts()
     } catch (err) {
       console.log(err)
     } finally {
@@ -23,7 +23,7 @@ const ProductList = () => {
     }
 
   }, [])
-  console.log(productData)
+
 
   useEffect(() => {
     const getCategoryData = async () => {
@@ -41,36 +41,37 @@ const ProductList = () => {
   }, [])
   useEffect(() => {
     const getProductData = async () => {
-      const res = await fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`)
-      const data = await res.json()
-      setProductData(data)
-    }
-    try {
-      getProductData()
-    } catch (err) {
-      console.log(err)
-    } finally {
-      setIsProductsLoading(false)
-    }
+      return await fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`
+      )
+        .then((resp) => {
+          return resp.json();
+        })
+        .then((receivedJson) => {
+          setProductData(receivedJson);
+        })
+        .catch((err) => {
+          console.log("Error in fetch");
+        });
+    };
+    getProductData()
 
   }, [selectedCategory])
 
   return (
     <>
       <h1>Products</h1>
-      {categoryData.map((item, index) => {
+      {categoryData ? categoryData.map((item, index) => {
         return <button
           key={index}
           onClick={() => { setSelectedCategory(item); setActiveButton(index) }}
           className={activeButton === index ? "active" : "non-active"}
         >{item}</button>
-      })}
+      }) : console.log("sth went wrong")}
 
       {
         isProductsLoading ? <div>loading.....</div> :
           <ul>
             {productData.map(product => {
-              console.log(product)
               return <Product key={product.id} {...product} />
             })}
           </ul>
