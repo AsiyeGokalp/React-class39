@@ -38,7 +38,6 @@ const ProductDetail = () => {
     <div className="image">
       <h3>{product.title}</h3>
       <img src={product?.image} alt={product.id} />
-
       <p>{product.description}</p>
 
     </div>

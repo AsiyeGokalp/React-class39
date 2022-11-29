@@ -4,12 +4,14 @@ import ProductList from './ProductList';
 import ProductDetail from './ProductDetail';
 import { Routes, Route } from 'react-router-dom'
 import FavoriteProducts from './favoritedProducts'
+import Navigation from './Navigation';
 import { FavoriteProductProvider } from './favoriteProductContext'
 
 
 function App() {
   return (
     <div className="App">
+      <Navigation />
       <FavoriteProductProvider>
         <Routes>
           <Route path='/' element={<ProductList />} />
