@@ -20,7 +20,7 @@ const ProductDetail = () => {
     try {
       getData()
     } catch (err) {
-      setError(error.message)
+      setError(err.message)
     } finally {
       setIsLoading(false)
     }
