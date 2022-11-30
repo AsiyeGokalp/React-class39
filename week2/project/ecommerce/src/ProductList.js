@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Product from './Product'
+import Error from './Error'
 
 const ProductList = () => {
   const [productData, setProductData] = useState([])
@@ -18,7 +19,7 @@ const ProductList = () => {
     try {
       getAllProducts()
     } catch (err) {
-      console.log(err)
+     setError(err.message)
     } finally {
       setIsProductsLoading(false)
     }
@@ -35,7 +36,7 @@ const ProductList = () => {
     try {
       getCategoryData()
     } catch (err) {
-      console.log(err)
+      setError(err.message)
     }
 
 
