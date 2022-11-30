@@ -7,6 +7,7 @@ const ProductList = () => {
   const [categoryData, setCategoryData] = useState([])
   const [selectedCategory, setSelectedCategory] = useState([null])
   const [activeButton, setActiveButton] = useState()
+  const [error, setError] = useState('')
 
   useEffect(() => {
     const getAllProducts = async () => {
@@ -57,26 +58,33 @@ const ProductList = () => {
 
   }, [selectedCategory])
 
-  return (
+  return isProductsLoading ? (
+    <>
+      <h2>Loading...</h2>
+    </>
+  ) : error ? (
+    <Error error={error} />
+  ) : (
     <>
       <h1>Products</h1>
-      {categoryData ? categoryData.map((item, index) => {
-        return <button
-          key={index}
-          onClick={() => { setSelectedCategory(item); setActiveButton(index) }}
-          className={activeButton === index ? "active" : "non-active"}
-        >{item}</button>
-      }) : console.log("sth went wrong")}
+      <div>
+        {categoryData.map((item, index) => {
+          return <button
+            key={index}
+            onClick={() => { setSelectedCategory(item); setActiveButton(index) }}
+            className={activeButton === index ? "active" : "non-active"}
+          >{item}</button>
+        })}
 
-      {
-        isProductsLoading ? <div>loading.....</div> :
-          <ul>
-            {productData.map(product => {
-              return <Product key={product.id} {...product} />
-            })}
-          </ul>
-      }
-
+        {
+          isProductsLoading ? <div>loading.....</div> :
+            <ul>
+              {productData.map(product => {
+                return <Product key={product.id} {...product} />
+              })}
+            </ul>
+        }
+      </div>
     </>
   )
 }
