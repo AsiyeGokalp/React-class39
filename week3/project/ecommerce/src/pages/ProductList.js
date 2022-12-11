@@ -9,21 +9,6 @@ const ProductList = () => {
   const [activeButton, setActiveButton] = useState()
   const [error, setError] = useState()
 
-  // useEffect(() => {
-  //   const getAllProducts = async () => {
-  //     const res = await fetch(`https://fakestoreapi.com/products`)
-  //     const data = await res.json()
-  //     setProductData(data)
-  //   }
-  //   try {
-  //     getAllProducts()
-  //   } catch (err) {
-  //     console.log(err)
-  //   } finally {
-  //     setIsProductsLoading(false)
-  //   }
-
-  // }, [])
 
   useEffect(() => {
     const productsUrl = selectedCategory
@@ -58,23 +43,7 @@ const ProductList = () => {
 
 
   }, [])
-  // useEffect(() => {
-  //   const getProductData = async () => {
-  //     return await fetch(`https://fakestoreapi.com/products/category/${selectedCategory}`
-  //     )
-  //       .then((resp) => {
-  //         return resp.json();
-  //       })
-  //       .then((receivedJson) => {
-  //         setProductData(receivedJson);
-  //       })
-  //       .catch((err) => {
-  //         console.log("Error in fetch");
-  //       });
-  //   };
-  //   getProductData()
 
-  // }, [selectedCategory])
 
   return (
     <>

@@ -10,7 +10,7 @@ function FavIcon(props) {
   const favoritedProduct = (id) => {
     return favoriteProducts.some((product) => product.id === id);
   };
-  console.log(props)
+
   return (
     <div style={{ width: 20, height: 20, float: "right" }}>
       {favoritedProduct(props.product.id) ? (

@@ -5,7 +5,7 @@ import Product from "./ProductDetail";
 
 function FavoriteProducts() {
   const { favoriteProducts } = useContext(FavoriteProductContext);
-  console.log(favoriteProducts)
+
   return (
     <div>
       <h1>Favourites</h1>

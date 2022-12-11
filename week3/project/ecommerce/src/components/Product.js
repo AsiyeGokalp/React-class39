@@ -3,7 +3,6 @@ import { Link, Outlet } from "react-router-dom"
 import FavIcon from "./favoriteIcon.js"
 
 const Product = (props) => {
-  console.log(props)
   return (
     <>
       <FavIcon product={props} />
