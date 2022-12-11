@@ -1,11 +1,11 @@
 
 import './App.css';
-import ProductList from './ProductList';
-import ProductDetail from './ProductDetail';
+import ProductList from './pages/ProductList';
+import ProductDetail from './pages/ProductDetail';
 import { Routes, Route } from 'react-router-dom'
-import FavoriteProducts from './favoritedProducts'
-import Navigation from './navigation';
-import { FavoriteProductProvider } from './favoriteProductContext'
+import FavoriteProducts from './pages/favoritedProducts'
+import Navigation from './components/navigation';
+import { FavoriteProductProvider } from './contex/favoriteProductContext'
 
 
 function App() {

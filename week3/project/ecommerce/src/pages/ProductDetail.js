@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Error from './Error'
+import Error from '../error/Error'
 import { useParams } from 'react-router-dom'
 
 

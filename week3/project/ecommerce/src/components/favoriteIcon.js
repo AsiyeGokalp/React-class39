@@ -1,24 +1,24 @@
 import React, { useContext } from "react";
-import { FavoriteProductContext } from "./favoriteProductContext";
-import heartRegular from "./assets/heart-regular.svg";
-import heartSolid from "./assets/heart-solid.svg";
+import { FavoriteProductContext } from "../contex/favoriteProductContext";
+import heartRegular from "../assets/heart-regular.svg";
+import heartSolid from "../assets/heart-solid.svg";
 
-function FavIcon({ product }) {
+function FavIcon(props) {
   const { addFavoriteProduct, removeFavoriteProduct, favoriteProducts } =
     useContext(FavoriteProductContext);
 
   const favoritedProduct = (id) => {
     return favoriteProducts.some((product) => product.id === id);
   };
-  console.log(product)
+  console.log(props)
   return (
     <div style={{ width: 20, height: 20, float: "right" }}>
-      {favoritedProduct(product.id) ? (
+      {favoritedProduct(props.product.id) ? (
         <img
           src={heartSolid}
           alt="favorite-icon"
           onClick={() => {
-            removeFavoriteProduct(product);
+            removeFavoriteProduct(props.product);
           }}
         />
       ) : (
@@ -26,7 +26,7 @@ function FavIcon({ product }) {
           src={heartRegular}
           alt="favorite-icon"
           onClick={() => {
-            addFavoriteProduct(product);
+            addFavoriteProduct(props.product);
           }}
         />
       )}

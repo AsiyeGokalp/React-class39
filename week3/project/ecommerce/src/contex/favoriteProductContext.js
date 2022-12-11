@@ -2,7 +2,7 @@ import React, { useState, createContext } from "react";
 
 export const FavoriteProductContext = createContext();
 
-export const FavoriteProductProvider = (props) => {
+export const FavoriteProductProvider = ({ children }) => {
   const [favoriteProducts, setFavoriteProducts] = useState([]);
 
   const addFavoriteProduct = (product) => {
@@ -19,7 +19,7 @@ export const FavoriteProductProvider = (props) => {
   const value = { addFavoriteProduct, removeFavoriteProduct, favoriteProducts };
   return (
     <FavoriteProductContext.Provider value={value}>
-      {props.children}
+      {children}
     </FavoriteProductContext.Provider>
   );
 };
