@@ -29,7 +29,7 @@ const ProductList = () => {
 
 useEffect(() => {
 const productsUrl = selectedCategory
-? https://fakestoreapi.com/products/category/${selectedCategory}
+? `https://fakestoreapi.com/products/category/${selectedCategory}`
 : "https://fakestoreapi.com/products";
 const getProductData = async () => {
 try {
